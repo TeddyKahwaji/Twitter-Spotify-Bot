@@ -53,4 +53,4 @@ if __name__ == "__main__":
     spotifyContainer = SpotifyAPIContainer()
     spotifyContainer.refreshToken()
     spotifyContainer.create_playlist()
-    set_interval(runBot, 900)
+    set_interval(runBot, 600)

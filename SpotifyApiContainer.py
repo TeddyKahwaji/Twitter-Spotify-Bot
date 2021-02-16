@@ -10,15 +10,21 @@ class SpotifyAPIContainer:
     def __init__(self):
         self.user_id = USER_ID
         self.spotify_token = ""
+        self.checkerSet = set()
 
     def addSongsToPlaylist(self, songList):
         print("ADDING SONGS TO PLAYLIST")
         query = f"https://api.spotify.com/v1/playlists/{self.playlist_id}/tracks"
+        songList = list(filter(lambda e: e not in self.checkerSet, songList))
+
         requests_body = json.dumps({
             "uris": songList,
         })
         response = requests.post(query, requests_body, headers=self.header)
         response_json = response.json()
+        for song in songList:
+            if song not in self.checkerSet:
+                self.checkerSet.add(song)
 
     def create_playlist(self):
         print("CREATING PLAYLIST")
