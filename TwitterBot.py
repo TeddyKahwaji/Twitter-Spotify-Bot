@@ -52,5 +52,4 @@ if __name__ == "__main__":
     twitBot = TwitterBotContainer()
     spotifyContainer = SpotifyAPIContainer()
     spotifyContainer.refreshToken()
-    spotifyContainer.create_playlist()
     set_interval(runBot, 600)
