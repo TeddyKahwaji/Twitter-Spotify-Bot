@@ -11,7 +11,7 @@ class SpotifyAPIContainer:
         self.user_id = USER_ID
         self.spotify_token = ""
         self.checkerSet = set()
-        self.playlist_id = "2hG55i5eClTfIwuH68VJFn?si=4NHTCaXySIaXNgw6CW2Npg"
+        self.playlist_id = "2hG55i5eClTfIwuH68VJFn"
 
     def addSongsToPlaylist(self, songList):
         print("ADDING SONGS TO PLAYLIST")
