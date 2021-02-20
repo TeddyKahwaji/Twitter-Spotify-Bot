@@ -46,6 +46,9 @@ def runBot():
     if(len(mentions) > 0):
         spotifyContainer.refreshToken()
         spotifyContainer.addSongsToPlaylist(mentions)
+        print(f"Songs added: {mentions}")
+    else:
+        print("No mentions exist no songs were added")
 
 
 if __name__ == "__main__":
