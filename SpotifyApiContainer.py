@@ -27,6 +27,14 @@ class SpotifyAPIContainer:
             if song not in self.checkerSet:
                 self.checkerSet.add(song)
 
+    def preLoadCheckerSet(self):
+        query = f"https://api.spotify.com/v1/playlists/{self.playlist_id}/tracks"
+        sList = requests.get(query, headers=self.header).json()["items"]
+        uriList = [item["track"]["uri"] for item in sList]
+        for song in uriList:
+            if song not in self.checkerSet:
+                self.checkerSet.add(song)
+
     def refreshToken(self):
         print("REFERSHING TOKEN")
         refresher = Refresh()
